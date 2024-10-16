@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <!-- Web app meta tags -->
+    <meta name="theme-color" content="#007BFF">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: block;
+            width: 80%;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            font-size: 18px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .nyt-button {
+            background-color: #800080; /* Purple */
+        }
+        .globle-button {
+            background-color: #A10000; /* Red */
+        }
+        .capitals-button {
+            background-color: #007BFF; /* Blue */
+        }
+        .travle-button {
+            background-color: #FF69B4; /* Pink */
+        }
+        .unzoomed-button {
+            background-color: #FFA500; /* Orange */
+        }
+        .worldle-button {
+            background-color: #28a745; /* Green */
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Games</h1>
+
+        <a href="https://www.nytimes.com/crosswords" class="button nyt-button" target="_blank">New York Times Games</a>
+        <a href="https://globle-game.com/" class="button globle-button" target="_blank">Globle</a>
+        <a href="https://globle-capitals.com/" class="button capitals-button" target="_blank">Globle Capitals</a>
+        <a href="https://travle.earth/" class="button travle-button" target="_blank">Travle</a>
+        <a href="https://www.unzoomed.com/en" class="button unzoomed-button" target="_blank">Unzoomed</a>
+        <a href="https://worldle.teuteuf.fr/" class="button worldle-button" target="_blank">Worldle</a>
+    </div>
+
+</body>
+</html>
