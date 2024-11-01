@@ -1,6 +1,7 @@
 {
   "name": "Games",
   "short_name": "Games",
+  "description": "Links to problem solving and memory webgames.",
   "icons": [
     {
       "src": "/icons/web-app-manifest-192x192.png",
