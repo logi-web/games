@@ -15,14 +15,21 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: top;
-            height: 100vh;
+            align-items: center;
+            min-height: 100vh;
         }
         .container {
             width: 100%;
             max-width: 400px;
             padding: 20px;
             text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .buttons-container {
+            width: 100%;
+            flex: 1;
         }
         h1 {
             color: #333;
@@ -79,38 +86,32 @@
             opacity: 0.8;
         }
         .footer {
-            width: 80%;
-            padding: 30px 0;
+            width: 100%;
+            padding: 20px 0;
             background-color: #f4f4f4;
             margin-top: auto;
             border-top: 1px solid #ddd;
-            padding-left: 10%;
-            padding-right: 10%;
-            text-decoration: none;
-            text-align: center;           
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Games</h1>
-
-        <a href="https://www.nytimes.com/crosswords" class="button nyt-button" target="_blank">New York Times Games</a>
-        <a href="https://globle-game.com/" class="button globle-button" target="_blank">Globle</a>
-        <a href="https://globle-capitals.com/" class="button capitals-button" target="_blank">Globle Capitals</a>
-        <a href="https://travle.earth/" class="button travle-button" target="_blank">Travle</a>
-        <a href="https://www.unzoomed.com/en" class="button unzoomed-button" target="_blank">Unzoomed</a>
-        <a href="http://worldle.teuteuf.fr/" class="button worldle-button" target="_blank">Worldle</a>
-        <a href="https://www.seterra.com/#quizzes" class="button seterra-button" target="_blank">Seterra</a>
-        <a href="https://framed.wtf/" class="button framed-button" target="_blank">Framed</a>
-        <a href="https://likewise.com/games/moviedle" class="button moviedle-button" target="_blank">Moviedle</a>
-        <a href="https://likewise.com/games/posterdle" class="button posterdle-button" target="_blank">Posterdle</a>
+        <div class="buttons-container">
+            <h1>Games</h1>
+            <a href="https://www.nytimes.com/crosswords" class="button nyt-button" target="_blank">New York Times Games</a>
+            <a href="https://globle-game.com/" class="button globle-button" target="_blank">Globle</a>
+            <a href="https://globle-capitals.com/" class="button capitals-button" target="_blank">Globle Capitals</a>
+            <a href="https://travle.earth/" class="button travle-button" target="_blank">Travle</a>
+            <a href="https://www.unzoomed.com/en" class="button unzoomed-button" target="_blank">Unzoomed</a>
+            <a href="http://worldle.teuteuf.fr/" class="button worldle-button" target="_blank">Worldle</a>
+            <a href="https://www.seterra.com/#quizzes" class="button seterra-button" target="_blank">Seterra</a>
+            <a href="https://framed.wtf/" class="button framed-button" target="_blank">Framed</a>
+            <a href="https://likewise.com/games/moviedle" class="button moviedle-button" target="_blank">Moviedle</a>
+            <a href="https://likewise.com/games/posterdle" class="button posterdle-button" target="_blank">Posterdle</a>
+        </div>
         <div class="footer">
             <p>By Louis Giron, find me on <a href="https://github.com/logi-web">GitHub</a></p>
         </div>
     </div>
-
-
 </body>
 </html>
