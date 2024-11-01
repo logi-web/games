@@ -26,11 +26,6 @@
         }
         h1 {
             color: #333;
-            margin-bottom: 10px;
-        }
-        .counter {
-            color: #666;
-            font-size: 16px;
             margin-bottom: 20px;
         }
         .button {
@@ -89,7 +84,6 @@
 
     <div class="container">
         <h1>Games</h1>
-        <div class="counter">You are visitor #<span id="visitor-count">loading...</span></div>
 
         <a href="https://www.nytimes.com/crosswords" class="button nyt-button" target="_blank">New York Times Games</a>
         <a href="https://globle-game.com/" class="button globle-button" target="_blank">Globle</a>
@@ -103,17 +97,10 @@
         <a href="https://likewise.com/games/posterdle" class="button posterdle-button" target="_blank">Posterdle</a>
     </div>
 
-    <script>
-        // Using a free counter API
-        fetch('https://api.countapi.xyz/hit/logi-web.github.io/games/visits')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('visitor-count').textContent = data.value.toLocaleString();
-            })
-            .catch(error => {
-                document.getElementById('visitor-count').textContent = 'Error loading count';
-            });
-    </script>
+    <div align="center">
+        <img alt="Visitor Stats" 
+            src="https://widgetbite.com/stats/logi-web"/>  
+    </div>
 
 </body>
 </html>
