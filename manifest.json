@@ -4,13 +4,13 @@
   "description": "Links to problem solving and memory webgames.",
   "icons": [
     {
-      "src": "games/icons/web-app-manifest-192x192.png",
+      "src": "https://logi-web.github.io/games/icons/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "games/icons/web-app-manifest-512x512.png",
+      "src": "https://logi-web.github.io/games/icons/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
