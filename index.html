@@ -8,35 +8,42 @@
     <meta name="theme-color" content="#007BFF">
     <link rel="manifest" href="manifest.json">
     <style>
-        /* styling */
+        /* Global reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: center;
-            min-height: 100vh;
+            justify-content: center;
+            height: 100vh;
         }
+
         .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
             max-width: 400px;
             padding: 20px;
             text-align: center;
+            flex: 1; /* Allows the container to take up space and center content */
         }
+
         h1 {
             color: #333;
             margin-bottom: 20px;
         }
+
         .button {
             display: block;
             width: 80%;
-            padding-left: 10%;
-            padding-right: 10%;
-            padding-bottom: 20px;
-            padding-top: 20px;
             font-size: 18px;
             color: white;
             border: none;
@@ -47,34 +54,58 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .nyt-button { background-color: #800080; } /* Purple */
-        .globle-button { background-color: #A10000; } /* Red */
-        .capitals-button { background-color: #007BFF; } /* Blue */
-        .travle-button { background-color: #FF69B4; } /* Pink */
-        .unzoomed-button { background-color: #FFA500; } /* Orange */
-        .worldle-button { background-color: #28a745; } /* Green */
-        .framed-button { background-color: #00008B; } /* Dark blue */
-        .moviedle-button { background-color: #FFD530; } /* Light Orange */
-        .posterdle-button { background-color: #DAB1DA; } /* Light Purple */
-        .seterra-button { background-color: #FF8577; } /* Salmon */
-        .button:hover { opacity: 0.8; 
+
+        /* Button colors */
+        .nyt-button { background-color: #800080; }
+        .globle-button { background-color: #A10000; }
+        .capitals-button { background-color: #007BFF; }
+        .travle-button { background-color: #FF69B4; }
+        .unzoomed-button { background-color: #FFA500; }
+        .worldle-button { background-color: #28a745; }
+        .framed-button { background-color: #00008B; }
+        .moviedle-button { background-color: #FFD530; }
+        .posterdle-button { background-color: #DAB1DA; }
+        .seterra-button { background-color: #FF8577; }
+
+        .button:hover {
+            opacity: 0.8;
         }
         footer {
+            width: 100%;
+            max-width: 400px;
             padding: 10px 20px;
             text-align: center;
             font-size: 14px;
             color: #555;
         }
+
         footer a {
             color: #007BFF;
             text-decoration: none;
         }
+
         footer a:hover {
             text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            .button {
+                font-size: 16px;
+                padding: 12px;
+            }
+            footer {
+                font-size: 13px;
+                padding: 8px;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>Games</h1>
         <a href="https://www.nytimes.com/crosswords" class="button nyt-button" target="_blank">New York Times Games</a>
@@ -88,8 +119,10 @@
         <a href="https://likewise.com/games/moviedle" class="button moviedle-button" target="_blank">Moviedle</a>
         <a href="https://likewise.com/games/posterdle" class="button posterdle-button" target="_blank">Posterdle</a>
     </div>
+
     <footer>
         By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
     </footer>
+
 </body>
 </html>
