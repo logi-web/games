@@ -23,6 +23,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            min-width: 200px; /* Added minimum width */
         }
 
         .container {
@@ -31,9 +32,10 @@
             align-items: center;
             width: 100%;
             max-width: 400px;
+            min-width: 200px; /* Added minimum width */
             padding: 20px;
             text-align: center;
-            flex: 1; /* Allows the container to take up space and center content */
+            flex: 1;
         }
 
         h1 {
@@ -44,6 +46,7 @@
         .button {
             display: block;
             width: 80%;
+            min-width: 160px; /* Added minimum width (80% of container min-width) */
             padding: 15px;
             font-size: 18px;
             color: white;
@@ -76,6 +79,7 @@
         footer {
             width: 100%;
             max-width: 400px;
+            min-width: 200px; /* Added minimum width */
             padding: 10px 20px;
             text-align: center;
             font-size: 14px;
@@ -89,21 +93,6 @@
 
         footer a:hover {
             text-decoration: underline;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5em;
-            }
-            .button {
-                font-size: 16px;
-                padding: 12px;
-            }
-            footer {
-                font-size: 13px;
-                padding: 8px;
-            }
         }
     </style>
 </head>
