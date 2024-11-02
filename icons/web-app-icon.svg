@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<g transform="translate(500, 500) scale(5) translate(-40, -45)">
+<path d="M 35 85 L 35 35 L 45 35 L 45 55 L 65 55 L 65 15 L 15 15 L 15 45" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="miter"/>
+<path d="M 15 65 L 75 65 L 75 5 L 5 5 L 5 55 L 25 55 L 25 25 L 55 25 L 55 45" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="miter"/>
+<path d="M 25 85 L 25 75 L 15 75" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="miter"/>
+<path d="M 45 85 L 45 75 L 55 75" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="miter"/>
+<circle cx="15" cy="85" r="4" fill="currentColor" stroke="none"/>
+<circle cx="55" cy="85" r="4" fill="currentColor" stroke="none"/>
+</g>
+</svg>
