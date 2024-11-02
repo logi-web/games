@@ -19,10 +19,10 @@
       "src": "https://logi-web.github.io/games/icons/web-app-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any monochrome"
+      "purpose": "monochrome"
     }
   ],
   "theme_color": "#000000",
-  "background_color": "transparent",
+  "background_color": "#000000",
   "display": "standalone"
 }
