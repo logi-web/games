@@ -15,6 +15,12 @@
       "type": "image/png",
       "purpose": "monochrome"
     }
+    {
+      "src": "https://logi-web.github.io/games/icons/web-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any monochrome"
+    }
   ],
   "theme_color": "transparent",
   "background_color": "transparent",
