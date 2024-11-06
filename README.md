@@ -1,6 +1,6 @@
 # Simple Lists with GitHub Pages
 
-A lightweight, YAML-driven web application for creating beautiful, responsive link collections. Originally created to bookmark daily web-based games, but versatile enough for any collection of links.
+A lightweight, YAML-driven web application for pretty link collections. Originally created to bookmark daily web-based games, but versatile enough for any collection of links.
 
 ## [Example](https://logi-web.github.io/games/)
 
@@ -50,22 +50,12 @@ The `list.yaml` file controls all content. Each entry requires:
   iconType: material-icons
 ```
 
-## Use Cases
-- Daily puzzle game collections
+## Example Use Cases
+- Daily game collections
 - Bookmark organizations
 - Resource directories
 - Quick link dashboards
 - Personal portfolios
 - Team tool collections
 
-## Customization
-- Modify colors in `style.css`
-- Change layout in `index.html`
-- Add new features by extending the JavaScript
-- Customize metadata in `index.html`
-
-## License
-MIT License - feel free to use and modify as needed.
-
-## Author
-Created by [Louis Giron](https://github.com/logi-web)
+Created by [Louis Giron](https://github.com/logi-web)   |   MIT License - feel free to use and modify as needed.
