@@ -29,10 +29,6 @@ async function initializePage() {
         document.getElementById('favicon-ico').href = `/${repoName}/icons/favicon.ico`;
         document.getElementById('apple-touch-icon').href = `/${repoName}/icons/apple-touch-icon.png`;
 
-        // Update author information
-        document.getElementById('author-name').textContent = config.author;
-        document.getElementById('author-link').href = config.authorLink;
-
         // Load and display the links
         const listResponse = await fetch(`/${repoName}/list.yaml`);
         const listText = await listResponse.text();
