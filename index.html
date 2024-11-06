@@ -27,6 +27,8 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <!-- Add YAML parser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -83,23 +85,9 @@
             transition: background-color 0.3s ease;
             gap: 10px;
         }
-        .material-icons {
+        .material-icons, .material-symbols-outlined {
             font-size: 24px;
         }
-        .material-symbols-outlined {
-            font-size: 24px;
-        }
-        .nyt-button { background-color: #800080; }
-        .globle-button { background-color: #A10000; }
-        .capitals-button { background-color: #007BFF; }
-        .travle-button { background-color: #FF69B4; }
-        .unzoomed-button { background-color: #FFA500; }
-        .worldle-button { background-color: #28a745; }
-        .framed-button { background-color: #FF8577; }
-        .moviedle-button { background-color: #007A88; }
-        .posterdle-button { background-color: #D758BA; }
-        .seterra-button { background-color: #00008B; }
-
         .button:hover {
             opacity: 0.8;
         }
@@ -156,51 +144,9 @@
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>
-            Games
-        </h1>
-        <a href="https://www.nytimes.com/crosswords" class="button nyt-button" target="_blank">
-            New York Times Games
-            <span class="material-symbols-outlined">crossword</span>
-        </a>
-        <a href="https://globle-game.com/" class="button globle-button" target="_blank">
-            Globle
-            <span class="material-icons">public</span>
-        </a>
-        <a href="https://globle-capitals.com/" class="button capitals-button" target="_blank">
-            Globle Capitals
-            <span class="material-symbols-outlined">things_to_do</span>
-        </a>
-        <a href="https://travle.earth/" class="button travle-button" target="_blank">
-            Travle
-            <span class="material-icons">route</span>
-        </a>
-        <a href="https://www.unzoomed.com/en" class="button unzoomed-button" target="_blank">
-            Unzoomed
-            <span class="material-icons">zoom_out</span>
-        </a>
-        <a href="http://worldle.teuteuf.fr/" class="button worldle-button" target="_blank">
-            Worldle
-            <span class="material-icons">language</span>
-        </a>
-        <a href="https://www.seterra.com/#quizzes" class="button seterra-button" target="_blank">
-            Seterra
-            <span class="material-icons">map</span>
-        </a>
-        <a href="https://framed.wtf/" class="button framed-button" target="_blank">
-            Framed
-            <span class="material-icons">movie</span>
-        </a>
-        <a href="https://likewise.com/games/moviedle" class="button moviedle-button" target="_blank">
-            Moviedle
-            <span class="material-icons">theaters</span>
-        </a>
-        <a href="https://likewise.com/games/posterdle" class="button posterdle-button" target="_blank">
-            Posterdle
-            <span class="material-symbols-outlined">wall_art</span>
-        </a>
+        <h1>Games</h1>
+        <div id="game-buttons"></div>
     </div>
 
     <footer>
@@ -210,5 +156,83 @@
         </a>
     </footer>
 
+    <script>
+        // Your YAML data
+        const yamlData = `
+# Games list with properties
+games:
+  - name: New York Times Games
+    url: https://www.nytimes.com/crosswords
+    buttonColor: "#800080"
+    icon: crossword
+    iconType: material-symbols-outlined
+  - name: Globle
+    url: https://globle-game.com/
+    buttonColor: "#A10000"
+    icon: public
+    iconType: material-icons
+  - name: Globle Capitals
+    url: https://globle-capitals.com/
+    buttonColor: "#007BFF"
+    icon: things_to_do
+    iconType: material-symbols-outlined
+  - name: Travle
+    url: https://travle.earth/
+    buttonColor: "#FF69B4"
+    icon: route
+    iconType: material-icons
+  - name: Unzoomed
+    url: https://www.unzoomed.com/en
+    buttonColor: "#FFA500"
+    icon: zoom_out
+    iconType: material-icons
+  - name: Worldle
+    url: http://worldle.teuteuf.fr/
+    buttonColor: "#28a745"
+    icon: language
+    iconType: material-icons
+  - name: Seterra
+    url: https://www.seterra.com/#quizzes
+    buttonColor: "#00008B"
+    icon: map
+    iconType: material-icons
+  - name: Framed
+    url: https://framed.wtf/
+    buttonColor: "#FF8577"
+    icon: movie
+    iconType: material-icons
+  - name: Moviedle
+    url: https://likewise.com/games/moviedle
+    buttonColor: "#007A88"
+    icon: theaters
+    iconType: material-icons
+  - name: Posterdle
+    url: https://likewise.com/games/posterdle
+    buttonColor: "#D758BA"
+    icon: wall_art
+    iconType: material-symbols-outlined
+`;
+
+        // Parse YAML and create buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const data = jsyaml.load(yamlData);
+            const container = document.getElementById('game-buttons');
+            
+            data.games.forEach(game => {
+                const button = document.createElement('a');
+                button.href = game.url;
+                button.className = 'button';
+                button.target = '_blank';
+                button.style.backgroundColor = game.buttonColor;
+                
+                button.innerHTML = `
+                    ${game.name}
+                    <span class="${game.iconType}">${game.icon}</span>
+                `;
+                
+                container.appendChild(button);
+            });
+        });
+    </script>
 </body>
 </html>
