@@ -1,5 +1,5 @@
 # List of links with properties
-games:
+links:
   - name: New York Times Games
     url: https://www.nytimes.com/crosswords
     buttonColor: "#800080"    # Purple
