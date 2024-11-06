@@ -6,10 +6,10 @@
     <title id="page-title"></title>
     <meta name="apple-mobile-web-app-title" id="app-title" />
     <meta name="description" id="page-description">
-    
+
     <meta name="theme-color" content="#007BFF">
     <link rel="stylesheet" id="styles-link">
-    
+
     <meta property="og:title" id="og-title">
     <meta property="og:description" id="og-description">
     <meta property="og:image" id="og-image">
@@ -18,7 +18,7 @@
     <meta property="og:site_name" id="og-site-name">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
-    
+
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/png" id="favicon-png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" id="favicon-svg" />
@@ -28,13 +28,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 </head>
-<body class="content-hidden">
-    <div class="container" id="main-container">
+<body>
+    <div class="container loading" id="main-container">
         <h1 id="main-title"></h1>
         <div id="link-buttons"></div>
     </div>
-    <footer id="main-footer">
-        By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
+    <footer class="loading" id="main-footer">
+        By <span id="author-name"></span>, find me on <a id="author-link" target="_blank">GitHub</a>
     </footer>
     <script>
         async function initializePage() {
@@ -72,16 +72,16 @@
                 const data = jsyaml.load(listText);
                 
                 const container = document.getElementById('link-buttons');
-                data.links.forEach(link => {
+                data.games.forEach(game => {
                     const button = document.createElement('a');
-                    button.href = link.url;
+                    button.href = game.url;
                     button.className = 'button';
                     button.target = '_blank';
-                    button.style.backgroundColor = link.buttonColor;
+                    button.style.backgroundColor = game.buttonColor;
                     
-                    let buttonContent = link.name;
-                    if (link.iconType && link.icon) {
-                        buttonContent += `<span class="${link.iconType}">${link.icon}</span>`;
+                    let buttonContent = game.name;
+                    if (game.iconType && game.icon) {
+                        buttonContent += `<span class="${game.iconType}">${game.icon}</span>`;
                     }
                     button.innerHTML = buttonContent;
                     
@@ -111,6 +111,6 @@
         }
         document.addEventListener('DOMContentLoaded', initializePage);
     </script>
-<!--    <script src="js/main.js"></script> -->
+    <script src="js/main.js"></script>
 </body>
 </html>
