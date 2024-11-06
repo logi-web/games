@@ -31,8 +31,6 @@ A lightweight, YAML-driven web application for creating beautiful, responsive li
 
 3. Deploy via GitHub Pages (need explanation)
 
-4. include how to do .nojekyll for faster deployment 
-
 ## Configuration
 
 ### YAML Structure
