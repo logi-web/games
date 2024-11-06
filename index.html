@@ -35,7 +35,7 @@
 <body>
     <div class="container">
         <h1>Games</h1>
-        <div id="game-buttons"></div>
+        <div id="link-buttons"></div>
     </div>
 
     <footer>
@@ -50,7 +50,7 @@
                 .then(response => response.text())
                 .then(yamlText => {
                     const data = jsyaml.load(yamlText);
-                    const container = document.getElementById('game-buttons');
+                    const container = document.getElementById('link-buttons');
                     
                     data.games.forEach(game => {
                         const button = document.createElement('a');
