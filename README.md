@@ -2,8 +2,7 @@
 
 A lightweight, YAML-driven web application for creating beautiful, responsive link collections. Originally created to organize daily web-based puzzle games, but versatile enough for any collection of links.
 
-## Example
-Visit [https://logi-web.github.io/games/](https://logi-web.github.io/games/) to see it in action.
+## [Example](https://logi-web.github.io/games/)
 
 ## Features
 - 🎨 Clean, responsive design
