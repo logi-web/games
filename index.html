@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // Single write approach - better than multiple writes
+        document.write(`
+            <meta property="og:url" content="${window.location.href}">
+            <meta property="og:image" content="${window.location.href} + /icons//web-app-manifest-512x512.png">
+        `);
+
+        // Even better approach - create and append elements
+        window.onload = function() {
+            const metaTags = [
+                { property: 'og:url', content: window.location.href },
+                { name: 'twitter:url', content: window.location.href }
+            ];
+            
+            metaTags.forEach(meta => {
+                const tag = document.createElement('meta');
+                Object.entries(meta).forEach(([key, value]) => tag.setAttribute(key, value));
+                document.head.appendChild(tag);
+            });
+        };
+    </script>
     <!-- Web app meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +32,8 @@
     
     <meta property="og:title" content="Games">
     <meta property="og:description" content="Easy links to web games.">
-    <meta property="og:image" content="https://logi-web.github.io/games/icons/web-app-manifest-512x512.png">
-    <meta property="og:url" content="https://logi-web.github.io/games">
+    <!-- <meta property="og:image" content="https://logi-web.github.io/games/icons/web-app-manifest-512x512.png">
+    <meta property="og:url" content="https://logi-web.github.io/games"> -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="logi-web">
 
