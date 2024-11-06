@@ -1,5 +1,5 @@
-# Simple Lists with GitHub Pages
-A lightweight, YAML-driven web application for pretty link collections. Originally created to bookmark daily web-based [games](https://logi-web.github.io/games/), but versatile enough for any collection of links.
+# Simple Link Lists with GitHub Pages
+A simple web application that transforms YAML lists into responsive, neat link collections. Originally built for daily web [games](https://logi-web.github.io/games/), but perfect for any collection of links.
 
 ## Features
 - 🎨 Clean, responsive design
