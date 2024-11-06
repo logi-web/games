@@ -72,16 +72,16 @@
                 const data = jsyaml.load(listText);
                 
                 const container = document.getElementById('link-buttons');
-                data.games.forEach(game => {
+                data.links.forEach(link => {
                     const button = document.createElement('a');
-                    button.href = game.url;
+                    button.href = link.url;
                     button.className = 'button';
                     button.target = '_blank';
-                    button.style.backgroundColor = game.buttonColor;
+                    button.style.backgroundColor = link.buttonColor;
                     
-                    let buttonContent = game.name;
-                    if (game.iconType && game.icon) {
-                        buttonContent += `<span class="${game.iconType}">${game.icon}</span>`;
+                    let buttonContent = link.name;
+                    if (link.iconType && link.icon) {
+                        buttonContent += `<span class="${link.iconType}">${link.icon}</span>`;
                     }
                     button.innerHTML = buttonContent;
                     
