@@ -161,30 +161,33 @@
             GitHub
         </a>
     </footer>
-
     <script>
-        // Your YAML data [remains the same]
-        const yamlData = `https://logi-web.github.io/games/list.yaml`;
-
-        // Parse YAML and create buttons
         document.addEventListener('DOMContentLoaded', function() {
-            const data = jsyaml.load(yamlData);
-            const container = document.getElementById('game-buttons');
-            
-            data.games.forEach(game => {
-                const button = document.createElement('a');
-                button.href = game.url;
-                button.className = 'button';
-                button.target = '_blank';
-                button.style.backgroundColor = game.buttonColor;
-                
-                button.innerHTML = `
-                    ${game.name}
-                    <span class="${game.iconType}">${game.icon}</span>
-                `;
-                
-                container.appendChild(button);
-            });
+            fetch('https://logi-web.github.io/games/list.yaml')
+                .then(response => response.text())
+                .then(yamlText => {
+                    const data = jsyaml.load(yamlText);
+                    const container = document.getElementById('game-buttons');
+                    
+                    data.games.forEach(game => {
+                        const button = document.createElement('a');
+                        button.href = game.url;
+                        button.className = 'button';
+                        button.target = '_blank';
+                        button.style.backgroundColor = game.buttonColor;
+                        
+                        button.innerHTML = `
+                            ${game.name}
+                            <span class="${game.iconType}">${game.icon}</span>
+                        `;
+                        
+                        container.appendChild(button);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading games:', error);
+                    document.getElementById('game-buttons').innerHTML = 'Error loading games list. Please try again later.';
+                });
         });
     </script>
 </body>
