@@ -45,7 +45,7 @@
         <h1 id="main-title"></h1>
         <div id="link-buttons"></div>
     </div>
-    <footer>
+    <footer class="footer">
         By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
     </footer>
     <script>
@@ -105,12 +105,12 @@
                     } else {
                         styleLink.onload = resolve;
                     }
+                    document.getElementById('loadOverlay').style.display = 'none';
                 });
             } catch (error) {
                 console.error('Error initializing page:', error);
                 document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
             }
-            document.getElementById('loadOverlay').style.display = 'none';
         }
         document.addEventListener('DOMContentLoaded', initializePage);
     </script>
