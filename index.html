@@ -27,13 +27,26 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <style>
+        body {
+            visibility: hidden;
+        }
+        .loaded body {
+            visibility: visible;
+            animation: fadeIn 0.3s;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <div class="container loading" id="main-container">
+    <div class="container" id="main-container">
         <h1 id="main-title"></h1>
         <div id="link-buttons"></div>
     </div>
-    <footer class="loading" id="main-footer">
+    <footer id="main-footer">
         By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
     </footer>
     <script src="js/main.js"></script>
