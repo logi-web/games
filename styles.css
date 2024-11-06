@@ -98,6 +98,9 @@ footer a:hover {
 }
 
 /* Light mode styling */
+#loadOverlay {
+    background-color: white;
+}
 body {
     background-color: white;
     color: #333;
@@ -111,6 +114,9 @@ footer {
 
 /* Dark mode styling */
 @media (prefers-color-scheme: dark) {
+    #loadOverlay {
+        background-color: #121212;
+    }
     body {
         background-color: #121212;
         color: #e0e0e0;
