@@ -89,7 +89,6 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-
 /* Light mode styling */
 body {
     background-color: white;
@@ -101,7 +100,6 @@ h1 {
 footer {
     color: #555;
 }
-
 /* Dark mode styling */
 @media (prefers-color-scheme: dark) {
     body {
@@ -115,6 +113,3 @@ footer {
         color: #b0b0b0;
     }
 }
-
-/* This must be the very last line in your CSS file */
-#loadOverlay { display: none; }
