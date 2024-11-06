@@ -28,20 +28,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <style>
-        body {
-            visibility: hidden;
+        .content-hidden {
+            opacity: 0;
         }
-        .loaded body {
-            visibility: visible;
-            animation: fadeIn 0.3s;
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        .content-visible {
+            opacity: 1;
+            transition: opacity 0.3s ease-in;
         }
     </style>
 </head>
-<body>
+<body class="content-hidden">
     <div class="container" id="main-container">
         <h1 id="main-title"></h1>
         <div id="link-buttons"></div>
