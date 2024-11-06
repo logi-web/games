@@ -58,4 +58,4 @@ The `list.yaml` file controls all content. Each entry requires:
 - Personal portfolios
 - Team tool collections
 
-Created by [Louis Giron](https://github.com/logi-web)      |      _MIT License_
+_Created by [Louis Giron](https://github.com/logi-web)_
