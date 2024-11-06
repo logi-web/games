@@ -79,13 +79,6 @@ footer {
     justify-content: center;
     gap: 5px;
 }
-.loading {
-    opacity: 0;
-    transition: opacity 0.3s ease-in;
-}
-.loaded {
-    opacity: 1;
-}
 footer a {
     color: inherit;
     text-decoration: none;
