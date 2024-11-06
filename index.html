@@ -28,12 +28,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <style>
-        /* Light mode */
         #loadOverlay {
             background-color: white;
         }
-        
-        /* Dark mode */
         @media (prefers-color-scheme: dark) {
             #loadOverlay {
                 background-color: #121212;
@@ -111,10 +108,10 @@
             } catch (error) {
                 console.error('Error initializing page:', error);
                 document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
-                document.getElementById('loadOverlay').style.display = 'none';
             }
         }
         document.addEventListener('DOMContentLoaded', initializePage);
+        document.getElementById('loadOverlay').style.display = 'none';
     </script>
 </body>
 </html>
