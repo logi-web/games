@@ -1,77 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Previous head section remains the same -->
 <head>
-    <!-- Web app meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
-    <meta name="apple-mobile-web-app-title" content="Games" />
-    <meta name="description" content="Easy links to web games.">
+    <title id="page-title"></title>
+    <meta name="apple-mobile-web-app-title" id="app-title" />
+    <meta name="description" id="page-description">
     
     <meta name="theme-color" content="#007BFF">
-    <link rel="stylesheet" href="/games/styles.css">
+    <link rel="stylesheet" id="styles-link">
     
-    <meta property="og:title" content="Games">
-    <meta property="og:description" content="Easy links to web games.">
-    <meta property="og:image" content="https://logi-web.github.io/games/icons/web-app-manifest-512x512.png">
-    <meta property="og:url" content="https://logi-web.github.io/games">
+    <meta property="og:title" id="og-title">
+    <meta property="og:description" id="og-description">
+    <meta property="og:image" id="og-image">
+    <meta property="og:url" id="og-url">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="logi-web">
-
+    <meta property="og:site_name" id="og-site-name">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
     
     <link rel="manifest" href="manifest.json" />
-    <link rel="icon" type="image/png" href="/games/icons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/games/icons/favicon.svg" />
-    <link rel="shortcut icon" href="/games/icons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/games/icons/apple-touch-icon.png" />
-
+    <link rel="icon" type="image/png" id="favicon-png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" id="favicon-svg" />
+    <link rel="shortcut icon" id="favicon-ico" />
+    <link rel="apple-touch-icon" sizes="180x180" id="apple-touch-icon" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    <!-- Add YAML parser -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Games</h1>
+        <h1 id="main-title"></h1>
         <div id="link-buttons"></div>
     </div>
-
     <footer>
-        By Louis Giron, find me on 
-        <a href="https://github.com/logi-web" target="_blank">
+        By <span id="author-name"></span>, find me on 
+        <a id="author-link" target="_blank">
             GitHub
         </a>
     </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('/games/list.yaml')
-                .then(response => response.text())
-                .then(yamlText => {
-                    const data = jsyaml.load(yamlText);
-                    const container = document.getElementById('link-buttons');
+        async function initializePage() {
+            try {
+                const baseUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/');
+                const repoName = window.location.pathname.split('/')[1];
+
+                // Load the config YAML with corrected path
+                const configResponse = await fetch(`/${repoName}/config.yaml`);
+                const configText = await configResponse.text();
+                const config = jsyaml.load(configText);
+
+                // Update meta tags and titles
+                document.title = config.title;
+                document.getElementById('page-title').textContent = config.title;
+                document.getElementById('app-title').content = config.title;
+                document.getElementById('page-description').content = config.description;
+                document.getElementById('main-title').textContent = config.title;
+
+                // Update OpenGraph tags
+                document.getElementById('og-title').content = config.title;
+                document.getElementById('og-description').content = config.description;
+                document.getElementById('og-image').content = `${baseUrl}/icons/web-app-manifest-512x512.png`;
+                document.getElementById('og-url').content = baseUrl;
+                document.getElementById('og-site-name').content = config.siteName;
+
+                // Update links with corrected paths
+                document.getElementById('styles-link').href = `/${repoName}/styles.css`;
+                document.getElementById('favicon-png').href = `/${repoName}/icons/favicon-96x96.png`;
+                document.getElementById('favicon-svg').href = `/${repoName}/icons/favicon.svg`;
+                document.getElementById('favicon-ico').href = `/${repoName}/icons/favicon.ico`;
+                document.getElementById('apple-touch-icon').href = `/${repoName}/icons/apple-touch-icon.png`;
+
+                // Update author information
+                document.getElementById('author-name').textContent = config.author;
+                document.getElementById('author-link').href = config.authorLink;
+
+                // Load and display the links with corrected path
+                const listResponse = await fetch(`/${repoName}/list.yaml`);
+                const listText = await listResponse.text();
+                const data = jsyaml.load(listText);
+                
+                const container = document.getElementById('link-buttons');
+                data.games.forEach(game => {
+                    const button = document.createElement('a');
+                    button.href = game.url;
+                    button.className = 'button';
+                    button.target = '_blank';
+                    button.style.backgroundColor = game.buttonColor;
                     
-                    data.games.forEach(game => {
-                        const button = document.createElement('a');
-                        button.href = game.url;
-                        button.className = 'button';
-                        button.target = '_blank';
-                        button.style.backgroundColor = game.buttonColor;
-                        
-                        button.innerHTML = `
-                            ${game.name}
-                            <span class="${game.iconType}">${game.icon}</span>
-                        `;
-                        
-                        container.appendChild(button);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading list:', error);
-                    document.getElementById('game-buttons').innerHTML = 'Error loading list. Please try again later.';
+                    // Create button content based on whether icon is specified
+                    let buttonContent = game.name;
+                    if (game.iconType && game.icon) {
+                        buttonContent += `<span class="${game.iconType}">${game.icon}</span>`;
+                    }
+                    button.innerHTML = buttonContent;
+                    
+                    container.appendChild(button);
                 });
-        });
+            } catch (error) {
+                console.error('Error initializing page:', error);
+                document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initializePage);
     </script>
 </body>
 </html>
