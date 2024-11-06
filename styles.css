@@ -7,18 +7,6 @@ html, body {
     height: 100%;
     min-width: 200px;
 }
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
-    }
-    h1 {
-        color: #e0e0e0;
-    }
-    footer {
-        color: #b0b0b0;
-    }
-}
 body {
     background-color: white;
     color: #333;
@@ -26,17 +14,6 @@ body {
     overflow-y: auto;
     display: block;
     transition: background-color 0.3s, color 0.3s;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-    min-width: 200px;
-    padding: 0px;
-    text-align: center;
-    margin: 0 auto;
 }
 h1 {
     color: #333;
@@ -49,6 +26,44 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 10px;
+}
+footer {
+    color: #555;
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 auto 20px auto;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    h1 {
+        color: #e0e0e0;
+    }
+    footer {
+        color: #b0b0b0;
+    }
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+    padding: 0px;
+    text-align: center;
+    margin: 0 auto;
 }
 #link-buttons {
     display: flex;
@@ -79,21 +94,6 @@ h1 {
 }
 .button:hover {
     opacity: 0.8;
-}
-footer {
-    color: #555;
-    width: 100%;
-    max-width: 400px;
-    min-width: 200px;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 14px;
-    margin: 0 auto 20px auto;
-    transition: color 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
 }
 footer a:hover {
     text-decoration: underline;
