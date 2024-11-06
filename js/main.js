@@ -3,10 +3,14 @@ async function initializePage() {
         const baseUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/');
         const repoName = window.location.pathname.split('/')[1];
 
+        console.log('Initializing with repo:', repoName); // Debug log
+
         // Load the config YAML
         const configResponse = await fetch(`/${repoName}/config.yaml`);
         const configText = await configResponse.text();
         const config = jsyaml.load(configText);
+
+        console.log('Loaded config:', config); // Debug log
 
         // Update meta tags and titles
         document.title = config.title;
@@ -34,6 +38,8 @@ async function initializePage() {
         const listText = await listResponse.text();
         const data = jsyaml.load(listText);
         
+        console.log('Loaded list data:', data); // Debug log
+
         const container = document.getElementById('link-buttons');
         container.innerHTML = ''; // Clear any existing content
 
@@ -59,25 +65,38 @@ async function initializePage() {
         }
 
         // Wait for styles to load
-        await new Promise(resolve => {
-            const styleLink = document.getElementById('styles-link');
-            if (styleLink.sheet) {
-                resolve();
-            } else {
-                styleLink.onload = resolve;
-            }
-        });
+        const styleLink = document.getElementById('styles-link');
+        if (styleLink) {
+            await new Promise((resolve) => {
+                if (styleLink.sheet) {
+                    resolve();
+                } else {
+                    styleLink.onload = resolve;
+                }
+            });
+        }
+
+        console.log('Everything loaded, showing content'); // Debug log
 
         // Show content with smooth transition
-        document.documentElement.classList.add('loaded');
+        document.body.classList.remove('content-hidden');
+        document.body.classList.add('content-visible');
 
     } catch (error) {
         console.error('Error initializing page:', error);
         document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
         // Show content even if there's an error
-        document.documentElement.classList.add('loaded');
+        document.body.classList.remove('content-hidden');
+        document.body.classList.add('content-visible');
     }
 }
 
-document.addEventListener('DOMContentLoaded', initializePage);
+// Add error handling for script loading
+window.onerror = function(msg, url, line, col, error) {
+    console.error("Global error:", { msg, url, line, col, error });
+    document.body.classList.remove('content-hidden');
+    document.body.classList.add('content-visible');
+    return false;
+};
+
 document.addEventListener('DOMContentLoaded', initializePage);
