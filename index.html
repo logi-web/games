@@ -8,7 +8,7 @@
     <meta name="description" id="page-description">
 
     <meta name="theme-color" content="#007BFF">
-    <link rel="stylesheet" id="styles-link">
+    <link rel="stylesheet" id="styles.css">
 
     <meta property="og:title" id="og-title">
     <meta property="og:description" id="og-description">
@@ -39,14 +39,15 @@
     </style>
 </head>
 <body>
-    <div id="loadOverlay" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
-    <div class="container" id="main-container">
-        <h1 id="main-title"></h1>
-        <div id="link-buttons"></div>
+    <div id="loadOverlay" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;">
+        <div class="container" id="main-container">
+            <h1 id="main-title"></h1>
+            <div id="link-buttons"></div>
+        </div>
+        <footer id="main-footer">
+            By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
+        </footer>
     </div>
-    <footer id="main-footer">
-        By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
-    </footer>
     <script>
         async function initializePage() {
             try {
