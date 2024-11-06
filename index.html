@@ -28,6 +28,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <style>
+        /* Light mode */
         #loadOverlay {
             background-color: white;
         }
@@ -39,15 +40,14 @@
     </style>
 </head>
 <body>
-    <div id="loadOverlay" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;">
-        <div class="container" id="main-container">
-            <h1 id="main-title"></h1>
-            <div id="link-buttons"></div>
-        </div>
-        <footer id="main-footer">
-            By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
-        </footer>
+    <div id="loadOverlay" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
+    <div class="container" id="main-container">
+        <h1 id="main-title"></h1>
+        <div id="link-buttons"></div>
     </div>
+    <footer>
+        By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
+    </footer>
     <script>
         async function initializePage() {
             try {
@@ -108,7 +108,7 @@
                 });
             } catch (error) {
                 console.error('Error initializing page:', error);
-                document.getElementById('link-buttons').innerHTML = 'Error loading links. Please try again later.';
+                document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
             }
             document.getElementById('loadOverlay').style.display = 'none';
         }
