@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Previous head section remains the same -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,13 +27,22 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <style>
+        .loading {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        .loaded {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container loading" id="main-container">
         <h1 id="main-title"></h1>
         <div id="link-buttons"></div>
     </div>
-    <footer>
+    <footer class="loading" id="main-footer">
         By <span id="author-name"></span>, find me on 
         <a id="author-link" target="_blank">
             GitHub
@@ -46,7 +54,7 @@
                 const baseUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/');
                 const repoName = window.location.pathname.split('/')[1];
 
-                // Load the config YAML with corrected path
+                // Load the config YAML
                 const configResponse = await fetch(`/${repoName}/config.yaml`);
                 const configText = await configResponse.text();
                 const config = jsyaml.load(configText);
@@ -65,7 +73,7 @@
                 document.getElementById('og-url').content = baseUrl;
                 document.getElementById('og-site-name').content = config.siteName;
 
-                // Update links with corrected paths
+                // Update links
                 document.getElementById('styles-link').href = `/${repoName}/styles.css`;
                 document.getElementById('favicon-png').href = `/${repoName}/icons/favicon-96x96.png`;
                 document.getElementById('favicon-svg').href = `/${repoName}/icons/favicon.svg`;
@@ -76,7 +84,7 @@
                 document.getElementById('author-name').textContent = config.author;
                 document.getElementById('author-link').href = config.authorLink;
 
-                // Load and display the links with corrected path
+                // Load and display the links
                 const listResponse = await fetch(`/${repoName}/list.yaml`);
                 const listText = await listResponse.text();
                 const data = jsyaml.load(listText);
@@ -89,7 +97,6 @@
                     button.target = '_blank';
                     button.style.backgroundColor = game.buttonColor;
                     
-                    // Create button content based on whether icon is specified
                     let buttonContent = game.name;
                     if (game.iconType && game.icon) {
                         buttonContent += `<span class="${game.iconType}">${game.icon}</span>`;
@@ -98,9 +105,29 @@
                     
                     container.appendChild(button);
                 });
+
+                // Wait for styles to load
+                await new Promise(resolve => {
+                    const styleLink = document.getElementById('styles-link');
+                    if (styleLink.sheet) {
+                        resolve();
+                    } else {
+                        styleLink.onload = resolve;
+                    }
+                });
+
+                // Show content with smooth transition
+                requestAnimationFrame(() => {
+                    document.getElementById('main-container').classList.add('loaded');
+                    document.getElementById('main-footer').classList.add('loaded');
+                });
+
             } catch (error) {
                 console.error('Error initializing page:', error);
                 document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
+                // Show content even if there's an error
+                document.getElementById('main-container').classList.add('loaded');
+                document.getElementById('main-footer').classList.add('loaded');
             }
         }
 
