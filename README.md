@@ -59,3 +59,4 @@ The `list.yaml` file controls all content. Each entry requires:
 - Team tool collections
 
 _Created by [Louis Giron](https://github.com/logi-web)_
+_MIT Licence_
