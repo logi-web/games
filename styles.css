@@ -89,7 +89,6 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-/* Light mode styling */
 body {
     background-color: white;
     color: #333;
@@ -100,7 +99,6 @@ h1 {
 footer {
     color: #555;
 }
-/* Dark mode styling */
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #121212;
