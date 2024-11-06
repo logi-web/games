@@ -43,12 +43,12 @@
 </head>
 <body>
     <div id="loadOverlay" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
-    <div class="container loading" id="main-container">
+    <div class="container" id="main-container">
         <h1 id="main-title"></h1>
         <div id="link-buttons"></div>
     </div>
-    <footer class="loading" id="main-footer">
-        By <span id="author-name"></span>, find me on <a id="author-link" target="_blank">GitHub</a>
+    <footer id="main-footer">
+        By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
     </footer>
     <script>
         async function initializePage() {
@@ -77,9 +77,7 @@
                 document.getElementById('favicon-svg').href = `/${repoName}/icons/favicon.svg`;
                 document.getElementById('favicon-ico').href = `/${repoName}/icons/favicon.ico`;
                 document.getElementById('apple-touch-icon').href = `/${repoName}/icons/apple-touch-icon.png`;
-                // Update author information
-                document.getElementById('author-name').textContent = config.author;
-                document.getElementById('author-link').href = config.authorLink;
+
                 // Load and display the links
                 const listResponse = await fetch(`/${repoName}/list.yaml`);
                 const listText = await listResponse.text();
@@ -110,17 +108,9 @@
                         styleLink.onload = resolve;
                     }
                 });
-                // Show content with smooth transition
-                requestAnimationFrame(() => {
-                    document.getElementById('main-container').classList.add('loaded');
-                    document.getElementById('main-footer').classList.add('loaded');
-                });
             } catch (error) {
                 console.error('Error initializing page:', error);
                 document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
-                // Show content even if there's an error
-                document.getElementById('main-container').classList.add('loaded');
-                document.getElementById('main-footer').classList.add('loaded');
             }
             document.getElementById('loadOverlay').style.display = 'none';
         }
