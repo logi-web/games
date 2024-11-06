@@ -27,15 +27,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <style>
-        .content-hidden {
-            opacity: 0;
-        }
-        .content-visible {
-            opacity: 1;
-            transition: opacity 0.3s ease-in;
-        }
-    </style>
 </head>
 <body class="content-hidden">
     <div class="container" id="main-container">
@@ -107,15 +98,15 @@
                 });
                 // Show content with smooth transition
                 requestAnimationFrame(() => {
-                    document.getElementById('main-container').classList.add('content-visable');
-                    document.getElementById('main-footer').classList.add('content-visable');
+                    document.getElementById('main-container').classList.add('loaded');
+                    document.getElementById('main-footer').classList.add('loaded');
                 });
             } catch (error) {
                 console.error('Error initializing page:', error);
                 document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
                 // Show content even if there's an error
-                document.getElementById('main-container').classList.add('content-visable');
-                document.getElementById('main-footer').classList.add('content-visable');
+                document.getElementById('main-container').classList.add('loaded');
+                document.getElementById('main-footer').classList.add('loaded');
             }
         }
         document.addEventListener('DOMContentLoaded', initializePage);
