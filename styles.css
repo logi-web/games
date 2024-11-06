@@ -115,3 +115,6 @@ footer {
         color: #b0b0b0;
     }
 }
+
+/* This must be the very last line in your CSS file */
+#loadOverlay { display: none; }
