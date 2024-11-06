@@ -1,0 +1,52 @@
+# List with properties
+games:
+  - name: New York Times Games
+    url: https://www.nytimes.com/crosswords
+    buttonColor: "#800080"    # Purple
+    icon: crossword
+    iconType: material-symbols-outlined
+  - name: Globle
+    url: https://globle-game.com/
+    buttonColor: "#A10000"    # Dark Red
+    icon: public
+    iconType: material-icons
+  - name: Globle Capitals
+    url: https://globle-capitals.com/
+    buttonColor: "#007BFF"    # Blue
+    icon: things_to_do
+    iconType: material-symbols-outlined
+  - name: Travle
+    url: https://travle.earth/
+    buttonColor: "#FF69B4"    # Pink
+    icon: route
+    iconType: material-icons
+  - name: Unzoomed
+    url: https://www.unzoomed.com/en
+    buttonColor: "#FFA500"    # Orange
+    icon: zoom_out
+    iconType: material-icons
+  - name: Worldle
+    url: http://worldle.teuteuf.fr/
+    buttonColor: "#28a745"    # Green
+    icon: language
+    iconType: material-icons
+  - name: Seterra
+    url: https://www.seterra.com/#quizzes
+    buttonColor: "#00008B"    # Dark Blue
+    icon: map
+    iconType: material-icons
+  - name: Framed
+    url: https://framed.wtf/
+    buttonColor: "#FF8577"    # Coral
+    icon: movie
+    iconType: material-icons
+  - name: Moviedle
+    url: https://likewise.com/games/moviedle
+    buttonColor: "#007A88"    # Teal
+    icon: theaters
+    iconType: material-icons
+  - name: Posterdle
+    url: https://likewise.com/games/posterdle
+    buttonColor: "#D758BA"    # Pink/Purple
+    icon: wall_art
+    iconType: material-symbols-outlined
