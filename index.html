@@ -52,6 +52,7 @@
     </footer>
     <script>
         async function initializePage() {
+            document.getElementById('loadOverlay').style.display = 'none';
             try {
                 const baseUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/');
                 const repoName = window.location.pathname.split('/')[1];
@@ -112,7 +113,7 @@
                 console.error('Error initializing page:', error);
                 document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
             }
-            // document.getElementById('loadOverlay').style.display = 'none';
+            
         }
         document.addEventListener('DOMContentLoaded', initializePage);
     </script>
