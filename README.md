@@ -1,8 +1,7 @@
 # Simple Lists with GitHub Pages
-
 A lightweight, YAML-driven web application for pretty link collections. Originally created to bookmark daily web-based games, but versatile enough for any collection of links.
 
-## [Example](https://logi-web.github.io/games/)
+## [Demo](https://logi-web.github.io/games/)
 
 ## Features
 - 🎨 Clean, responsive design
@@ -14,12 +13,8 @@ A lightweight, YAML-driven web application for pretty link collections. Original
 - 📝 YAML-based configuration
 
 ## Quick Start
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/logi-web/games.git
-   ```
-
-2. Customize your links by editing `list.yaml`:
+1. Fork this repository
+2. Edit `list.yaml`:
    ```yaml
    list:
      - name: "Your Link Name"
@@ -28,20 +23,21 @@ A lightweight, YAML-driven web application for pretty link collections. Original
        icon: "icon-name"
        iconType: "material-icons"
    ```
-
-3. Deploy via GitHub Pages (need explanation)
+3. Deploy via GitHub Pages
+   - In your repository go to Settings > Pages
+   - Select 'main' as Source
+   - Save and wait for deployment
+   - Your site will be live at `https://[username].github.io/[repo-name]`
 
 ## Configuration
-
-### YAML Structure
-The `list.yaml` file controls all content. Each entry requires:
+Each YAML entry needs:
 - `name`: Display text
 - `url`: Link destination
-- `buttonColor`: Button background color (hex code)
+- `buttonColor`: HEX color code
 - `icon`: Material icon name
-- `iconType`: Either `material-icons` or `material-symbols-outlined`
+- `iconType`: `material-icons` or `material-symbols-outlined`
 
-### Example Entry
+Example:
 ```yaml
 - name: Worldle
   url: http://worldle.teuteuf.fr/
@@ -58,5 +54,5 @@ The `list.yaml` file controls all content. Each entry requires:
 - Personal portfolios
 - Team tool collections
 
-_Created by [Louis Giron](https://github.com/logi-web)_
-_MIT Licence_
+---
+*Created by [Louis Giron](https://github.com/logi-web) • MIT License*
