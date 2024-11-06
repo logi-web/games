@@ -108,8 +108,8 @@
             } catch (error) {
                 console.error('Error initializing page:', error);
                 document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
-                document.getElementById('loadOverlay').style.display = 'none';
             }
+            document.getElementById('loadOverlay').style.display = 'none';
         }
         document.addEventListener('DOMContentLoaded', initializePage);
     </script>
