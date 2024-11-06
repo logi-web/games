@@ -35,21 +35,28 @@ async function initializePage() {
         const data = jsyaml.load(listText);
         
         const container = document.getElementById('link-buttons');
-        data.links.forEach(link => {
-            const button = document.createElement('a');
-            button.href = link.url;
-            button.className = 'button';
-            button.target = '_blank';
-            button.style.backgroundColor = link.buttonColor;
-            
-            let buttonContent = link.name;
-            if (link.iconType && link.icon) {
-                buttonContent += `<span class="${link.iconType}">${link.icon}</span>`;
-            }
-            button.innerHTML = buttonContent;
-            
-            container.appendChild(button);
-        });
+        container.innerHTML = ''; // Clear any existing content
+
+        if (data.links && Array.isArray(data.links)) {
+            data.links.forEach(link => {
+                const button = document.createElement('a');
+                button.href = link.url;
+                button.className = 'button';
+                button.target = '_blank';
+                button.style.backgroundColor = link.buttonColor;
+                
+                let buttonContent = link.name;
+                if (link.iconType && link.icon) {
+                    buttonContent += `<span class="${link.iconType}">${link.icon}</span>`;
+                }
+                button.innerHTML = buttonContent;
+                
+                container.appendChild(button);
+            });
+        } else {
+            console.error('No links array found in list.yaml');
+            container.innerHTML = 'No links available.';
+        }
 
         // Wait for styles to load
         await new Promise(resolve => {
@@ -62,18 +69,15 @@ async function initializePage() {
         });
 
         // Show content with smooth transition
-        requestAnimationFrame(() => {
-            document.getElementById('main-container').classList.add('loaded');
-            document.getElementById('main-footer').classList.add('loaded');
-        });
+        document.documentElement.classList.add('loaded');
 
     } catch (error) {
         console.error('Error initializing page:', error);
         document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
         // Show content even if there's an error
-        document.getElementById('main-container').classList.add('loaded');
-        document.getElementById('main-footer').classList.add('loaded');
+        document.documentElement.classList.add('loaded');
     }
 }
 
+document.addEventListener('DOMContentLoaded', initializePage);
 document.addEventListener('DOMContentLoaded', initializePage);
