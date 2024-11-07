@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-title" id="app-title" />
     <meta name="description" id="page-description">
 
-    <meta name="theme-color" content="#007BFF">
+    <meta name="theme-color" content="#121212">
 
     <meta property="og:title" id="og-title">
     <meta property="og:description" id="og-description">
@@ -39,27 +39,19 @@
             opacity: 1;
             transition: opacity 0.3s ease-in-out;
         }
-        
         @media (prefers-color-scheme: dark) {
             #loadOverlay {
                 background-color: #121212;
             }
         }
-        
         .loaded #loadOverlay {
             opacity: 0;
             pointer-events: none;
         }
-
-        /* Basic styles to prevent FOUC */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
         }
-        
         .loaded .container {
             opacity: 1;
         }
@@ -167,7 +159,6 @@
                 }, 100);
             }
         }
-
         // Start loading as soon as possible
         initializePage();
     </script>
