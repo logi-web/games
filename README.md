@@ -21,18 +21,25 @@ A simple web application that transforms YAML lists into responsive, neat link c
        icon: "icon-name"             # OPTIONAL
        iconType: "material-icons"    # OPTIONAL
    ```
-3. Deploy via GitHub Pages
+4. Edit `config.yaml`:
+   ```yaml
+   title: "Your Title"
+   description: "Your Description"
+   siteName: "Your GitHub Name"
+   ```
+5. Deploy via GitHub Pages
    - In your repository go to Settings > Pages
    - Select 'main' as Source
    - Save and wait for deployment
    - Your site will be live at `https://[username].github.io/[repo-name]`
 
 ## Configuration
-Each YAML entry needs:
+Each `list.yaml` entry needs:
 - `name`: Display text
 - `url`: Link destination
 - `buttonColor`: HEX color code
-- `icon`: Material icon name
+Optional: (together)
+- `icon`: Material [icon](https://fonts.google.com/icons) name
 - `iconType`: `material-icons` or `material-symbols-outlined`
 
 Example:
