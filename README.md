@@ -59,8 +59,5 @@ Example:
 - Personal portfolios
 - Team tool collections
 
-## Issues:
-- Due to dynamic allocation of meta tags in javascript, used to enable instant running from a forked repository this 
-
 ---
 *Created by [Louis Giron](https://github.com/logi-web) • MIT License*
