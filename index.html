@@ -39,7 +39,8 @@ layout: null
 <body>
     <div class="container">
         <h1>{{ site.title }}</h1>
-        https://{{ site.github.owner_name }}.github.io/{{ site.github.repository_name }}/
+        {{ site.baseurl }}
+        {{ site.url }}
         <div id="link-buttons">
             {% for link in site.data.list.links %}
                 <a 
