@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title"></title>
-    <meta name="apple-mobile-web-app-title" id="app-title" />
-    <meta name="description" id="page-description">
-
     <meta name="theme-color" content="#121212">
+    
+    <!-- Title -->
+    title = "Games"
+    
+    <title id="page-title">title</title>
+    <meta name="apple-mobile-web-app-title" content="title">
+    <meta property="og:title" content="Games">
 
-    <meta property="og:title" id="og-title">
-    <meta property="og:description" id="og-description">
-    <meta property="og:image" id="og-image">
-    <meta property="og:url" id="og-url">
+    <!-- Description -->
+    <meta name="description" id="page-description" content="Easy links to web games.">
+    <meta property="og:description" content="Easy links to web games.">
+
+    <!-- Open Graph Protocol - GitHub name -->
+    <meta property="og:site_name" content="logi-web">
+
+    
+
+
+    <meta property="og:image" content="https://logi-web.github.io/games/icons/web-app-manifest-512x512.png">
+    <meta property="og:url" content="https://logi-web.github.io/games">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" id="og-site-name">
+
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
 
-    <link rel="manifest" href="manifest.json" />
-    <link rel="icon" type="image/png" id="favicon-png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" id="favicon-svg" />
-    <link rel="shortcut icon" id="favicon-ico" />
-    <link rel="apple-touch-icon" sizes="180x180" id="apple-touch-icon" />
+        <link rel="stylesheet" href="/games/styles.css">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="96x96" href="/games/icons/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/games/icons/favicon.svg">
+    <link rel="shortcut icon" href="/games/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/games/icons/apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    
+
     <style>
         #loadOverlay {
             position: fixed;
