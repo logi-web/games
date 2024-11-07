@@ -18,8 +18,8 @@ A simple web application that transforms YAML lists into responsive, neat link c
      - name: "Your Link Name"
        url: "https://your-url.com"
        buttonColor: "#HEX-COLOR"
-       icon: "icon-name"
-       iconType: "material-icons"
+       icon: "icon-name"             # OPTIONAL
+       iconType: "material-icons"    # OPTIONAL
    ```
 3. Deploy via GitHub Pages
    - In your repository go to Settings > Pages
@@ -40,8 +40,6 @@ Example:
 - name: Worldle
   url: http://worldle.teuteuf.fr/
   buttonColor: "#28a745"
-  icon: language
-  iconType: material-icons
 ```
 
 ## Example Use Cases
