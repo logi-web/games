@@ -87,7 +87,7 @@ async function initializePage() {
         // Always remove the overlay, but with a small delay to ensure smooth transition
         setTimeout(() => {
             document.body.classList.add('loaded');
-        }, 100);
+        }, 10);
     }
 }
 // Start loading as soon as possible
