@@ -2,4 +2,5 @@
 title: Games
 description: Easy links to web games.
 author: Louis Giron
-siteurl: https://{{ site.github.owner_name }}.github.io/{{ site.github.repository_name }}/
+baseurl: ""  # leave empty for user sites
+url: "" # leave empty for GitHub Pages to set automatically
