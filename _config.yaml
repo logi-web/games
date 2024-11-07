@@ -2,3 +2,4 @@
 title: Games
 description: Easy links to web games.
 author: Louis Giron
+siteurl: {{ site.github.owner_name }}.github.io/{{ site.github.repository_name }}/
