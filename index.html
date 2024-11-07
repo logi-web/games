@@ -11,7 +11,7 @@ layout: null
 
     <!-- Title & Description -->
     <title>{{ site.title }}</title>
-    <meta name="description" content="Easy links to web games.">
+    <meta name="description" content="{{ site.description }}">
     
     <!-- Open Graph Protocol-->
     <meta property="og:title" content="{{ site.title }}">
@@ -25,14 +25,14 @@ layout: null
     
     <!-- Icon Handling -->
     <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="/{{ site.github.repository_url }}/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/{{ site.github.repository_name }}/icons/apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" sizes="96x96" href="/{{ site.github.repository_url }}/icons/favicon-96x96.png">
-    <link rel="icon" type="image/svg+xml" href="/{{ site.github.repository_url }}/icons/favicon.svg">
-    <link rel="shortcut icon" href="/{{ site.github.repository_url }}/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/{{ site.github.repository_name }}/icons/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/{{ site.github.repository_name }}/icons/favicon.svg">
+    <link rel="shortcut icon" href="/{{ site.github.repository_name }}/icons/favicon.ico">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/games/styles.css">
+    <link rel="stylesheet" href="/{{ site.github.repository_name }}/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 </head>
@@ -55,7 +55,14 @@ layout: null
         </div>
     <footer class="footer">
         <!-- By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a> -->
-        By {{ site.author }}, find me on <a href="{{ site.github.owner_url }} target="_blank">GitHub</a>
+        By {{ site.author }}, find me on 
+        <a 
+            href="{{ site.github.owner_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub
+        </a>
     </footer>
     </div>
 </body>
