@@ -1,5 +1,5 @@
 # Simple Link Lists with GitHub Pages
-A simple web application that transforms YAML lists into responsive, neat link collections. Originally built for daily web [games](https://logi-web.github.io/games/), but perfect for any collection of links.
+A simple web application that uses Jekyll to build YAML lists into responsive, neat link collections. Originally built for daily web [games](https://logi-web.github.io/games/), but perfect for any collection of links.
 
 ## Features
 - 🎨 Clean, responsive design
@@ -12,20 +12,20 @@ A simple web application that transforms YAML lists into responsive, neat link c
 
 ## Quick Start
 1. Fork this repository
-2. Edit `list.yaml`:
+2. Edit `_data/list.yaml`:
    ```yaml
-   list:
+   links:
      - name: "Your Link Name"
        url: "https://your-url.com"
        buttonColor: "#HEX-COLOR"
        icon: "icon-name"             # OPTIONAL
        iconType: "material-icons"    # OPTIONAL
    ```
-4. Edit `config.yaml`:
+4. Edit `_config.yaml`:
    ```yaml
    title: "Your Title"
    description: "Your Description"
-   siteName: "Your GitHub Name"
+   author: "Your Name"
    ```
 5. Deploy via GitHub Pages
    - In your repository go to Settings > Pages
