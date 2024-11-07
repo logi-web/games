@@ -40,30 +40,32 @@ layout: null
     <div class="container">
         <h1>{{ site.title }}</h1>
         <div id="link-buttons">
-            {% for link in site.data.list.links %}
+            {% for link in site.data.lists.links %}
                 <a 
                     href="{{ link.url }}" 
                     class="button" 
-                    style="background-color: {{ link.buttonColor }}"
+                    style="background-color: {{ link.buttonColor | default: '#808080' }}"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <i class="{{ link.iconType }}">{{ link.icon }}</i>
+                    {% if link.icon and link.iconType %}
+                        <i class="{{ link.iconType }}">{{ link.icon }}</i>
+                    {% endif %}
                     {{ link.name }}
                 </a>
             {% endfor %}
         </div>
-    <footer class="footer">
-        <!-- By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a> -->
-        By {{ site.author }}, find me on 
-        <a 
-            href="{{ site.github.owner_url }}"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            GitHub
-        </a>
-    </footer>
+        <footer class="footer">
+            <!-- By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a> -->
+            By {{ site.author }}, find me on 
+            <a 
+                href="{{ site.github.owner_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+        </footer>
     </div>
 </body>
 </html>
