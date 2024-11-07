@@ -3,6 +3,8 @@ links:
   - name: New York Times Games
     url: https://www.nytimes.com/crosswords
     buttonColor: "#800080"    # Purple
+    icon: crossword
+    iconType: material-symbols-outlined
   - name: Globle
     url: https://globle-game.com/
     buttonColor: "#A10000"    # Dark Red
