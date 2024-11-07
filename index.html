@@ -17,30 +17,28 @@ layout: null
     <meta property="og:title" content="{{ site.title }}">
     <meta property="og:description" content="{{ site.description }}">
     <meta property="og:site_name" content="{{ site.github.owner_name }}">
-    <meta property="og:url" content="https://{{ site.github.owner_name }}.github.io/{{ site.github.repository_name }}/">
+    <meta property="og:url" content="{{ site.github.url }}/">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://{{ site.github.owner_name }}.github.io/{{ site.github.repository_name }}/icons/web-app-manifest-512x512.png">
+    <meta property="og:image" content="{{ site.github.url }}/icons/web-app-manifest-512x512.png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
     
     <!-- Icon Handling -->
     <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="/{{ site.github.repository_name }}/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.github.baseurl }}/icons/apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" sizes="96x96" href="/{{ site.github.repository_name }}/icons/favicon-96x96.png">
-    <link rel="icon" type="image/svg+xml" href="/{{ site.github.repository_name }}/icons/favicon.svg">
-    <link rel="shortcut icon" href="/{{ site.github.repository_name }}/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ site.github.baseurl }}/icons/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="{{ site.github.baseurl }}/icons/favicon.svg">
+    <link rel="shortcut icon" href="{{ site.github.baseurl }}/icons/favicon.ico">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/{{ site.github.repository_name }}/styles.css">
+    <link rel="stylesheet" href="{{ site.github.baseurl }}/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h1>{{ site.title }}</h1>
-        {{ site.github.baseurl }}
-        {{ site.github.url }}
         <div id="link-buttons">
             {% for link in site.data.list.links %}
                 <a 
