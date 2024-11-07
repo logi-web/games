@@ -38,6 +38,7 @@ Each `list.yaml` entry needs:
 - `name`: Display text
 - `url`: Link destination
 - `buttonColor`: HEX color code
+
 Optional: (together)
 - `icon`: Material [icon](https://fonts.google.com/icons) name
 - `iconType`: `material-icons` or `material-symbols-outlined`
