@@ -32,7 +32,8 @@ A simple web application that uses Jekyll to build YAML lists into responsive, n
    - Select 'main' as Source
    - Save and wait for deployment
    - Your site will be live at `https://[username].github.io/[repo-name]`
-6. Update with your icons `/icons/...` to customise for your use case.
+6. Replace icons `/icons/...` to customise how your links page displays
+   - The games logo is based on a mnemonic for the Cretan labyrinth, [Morrison. 2021.](https://doi.org/10.1007/978-3-319-57072-3_4
 
 ## Configuration
 Each `list.yaml` entry needs:
