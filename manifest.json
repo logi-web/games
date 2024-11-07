@@ -8,19 +8,19 @@ layout: null
   "description": "{{ site.description }}",
   "icons": [
     {
-      "src": "{{ site.github.repository_url }}/icons/web-app-manifest-192x192.png",
+      "src": "https://{{ site.github.owner_name }}.github.io/{{ site.github.repository_name }}//icons/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "monochrome"
     },
     {
-      "src": "{{ site.github.repository_url }}/icons/web-app-manifest-512x512.png",
+      "src": "https://{{ site.github.owner_name }}.github.io/{{ site.github.repository_name }}//icons/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "monochrome"
     },
     {
-      "src": "{{ site.github.repository_url }}/icons/web-app-icon.svg",
+      "src": "https://{{ site.github.owner_name }}.github.io/{{ site.github.repository_name }}//icons/web-app-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "monochrome"
