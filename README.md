@@ -32,6 +32,7 @@ A simple web application that uses Jekyll to build YAML lists into responsive, n
    - Select 'main' as Source
    - Save and wait for deployment
    - Your site will be live at `https://[username].github.io/[repo-name]`
+6. Update with your icons `/icons/...` to customise for your use case.
 
 ## Configuration
 Each `list.yaml` entry needs:
