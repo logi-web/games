@@ -7,7 +7,8 @@
     <meta name="apple-mobile-web-app-title" id="app-title" />
     <meta name="description" id="page-description">
 
-    <meta name="theme-color" content="#121212">
+    <meta name="theme-color" content="#007BFF">
+    <link rel="stylesheet" src="styles.css">
 
     <meta property="og:title" id="og-title">
     <meta property="og:description" id="og-description">
@@ -26,39 +27,20 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    
     <style>
+        /* Light mode */
         #loadOverlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             background-color: white;
-            z-index: 2000;
-            opacity: 1;
-            transition: opacity 0.3s ease-in-out;
         }
         @media (prefers-color-scheme: dark) {
             #loadOverlay {
                 background-color: #121212;
             }
         }
-        .loaded #loadOverlay {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .container {
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .loaded .container {
-            opacity: 1;
-        }
     </style>
 </head>
 <body>
-    <div id="loadOverlay"></div>
+    <div id="loadOverlay" style="position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
     <div class="container" id="main-container">
         <h1 id="main-title"></h1>
         <div id="link-buttons"></div>
@@ -66,6 +48,71 @@
     <footer class="footer">
         By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
     </footer>
-    <script src="js/main.js"></script>
+    <script>
+        async function initializePage() {
+            try {
+                const baseUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/');
+                const repoName = window.location.pathname.split('/')[1];
+                // Load the config YAML
+                const configResponse = await fetch(`/${repoName}/config.yaml`);
+                const configText = await configResponse.text();
+                const config = jsyaml.load(configText);
+                // Update meta tags and titles
+                document.title = config.title;
+                document.getElementById('page-title').textContent = config.title;
+                document.getElementById('app-title').content = config.title;
+                document.getElementById('page-description').content = config.description;
+                document.getElementById('main-title').textContent = config.title;
+                // Update OpenGraph tags
+                document.getElementById('og-title').content = config.title;
+                document.getElementById('og-description').content = config.description;
+                document.getElementById('og-image').content = `${baseUrl}/icons/web-app-manifest-512x512.png`;
+                document.getElementById('og-url').content = baseUrl;
+                document.getElementById('og-site-name').content = config.siteName;
+                // Update links
+                document.getElementById('styles-link').href = `/${repoName}/styles.css`;
+                document.getElementById('favicon-png').href = `/${repoName}/icons/favicon-96x96.png`;
+                document.getElementById('favicon-svg').href = `/${repoName}/icons/favicon.svg`;
+                document.getElementById('favicon-ico').href = `/${repoName}/icons/favicon.ico`;
+                document.getElementById('apple-touch-icon').href = `/${repoName}/icons/apple-touch-icon.png`;
+
+                // Load and display the links
+                const listResponse = await fetch(`/${repoName}/list.yaml`);
+                const listText = await listResponse.text();
+                const data = jsyaml.load(listText);
+                
+                const container = document.getElementById('link-buttons');
+                data.links.forEach(link => {
+                    const button = document.createElement('a');
+                    button.href = link.url;
+                    button.className = 'button';
+                    button.target = '_blank';
+                    button.style.backgroundColor = link.buttonColor;
+                    
+                    let buttonContent = link.name;
+                    if (link.iconType && link.icon) {
+                        buttonContent += `<span class="${link.iconType}">${link.icon}</span>`;
+                    }
+                    button.innerHTML = buttonContent;
+                    
+                    container.appendChild(button);
+                });
+                // Wait for styles to load
+                await new Promise(resolve => {
+                    const styleLink = document.getElementById('styles-link');
+                    if (styleLink.sheet) {
+                        resolve();
+                    } else {
+                        styleLink.onload = resolve;
+                    }
+                    document.getElementById('loadOverlay').style.display = 'none';
+                });
+            } catch (error) {
+                console.error('Error initializing page:', error);
+                document.getElementById('link-buttons').innerHTML = 'Error loading content. Please try again later.';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
 </body>
 </html>
