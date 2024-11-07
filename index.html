@@ -39,7 +39,20 @@ layout: null
 <body>
     <div class="container">
         <h1>{{ site.title }}</h1>
-        <div class="link-buttons"></div>
+        <div class="link-buttons">
+            {% for link in site.data.lists.links %}
+            <a 
+                href="{{ link.url }}" 
+                class="game-button" 
+                style="background-color: {{ link.buttonColor }}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="{{ link.iconType }}">{{ link.icon }}</i>
+                {{ link.name }}
+            </a>
+        </div>
+        {% endfor %}
     </div>
     <footer class="footer">
         By Louis Giron, find me on <a href="https://github.com/logi-web" target="_blank">GitHub</a>
